@@ -121,6 +121,17 @@ A few functions take no arguments at all, and therefore work as neither
 unary nor list operators.  These include such functions as
 L<C<time>|/time> and L<C<endpwent>|/endpwent>.  For example,
 C<time+86_400> always means C<time() + 86_400>.
+--:old
+Некоторые функции совсем не принимают аргументы, и поэтому работают как не
+унарные, так и не списковые операторы. К ним относятся такие функции, как time
+и endpwent. Например, time+86_400 всегда означает time() + 86_400.
+--:g
+Некоторые функции не принимают никаких аргументов и поэтому не работают ни
+унарные или список операторов.
+--:
+Некоторые функции не принимают никаких аргументов и поэтому ведут себя 
+не как унарные или списковые операторы.
+
 
 For functions that can be used in either a scalar or list context,
 nonabortive failure is generally indicated in scalar context by
