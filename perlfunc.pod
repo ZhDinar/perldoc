@@ -137,6 +137,21 @@ For functions that can be used in either a scalar or list context,
 nonabortive failure is generally indicated in scalar context by
 returning the undefined value, and in list context by returning the
 empty list.
+--:old
+Для функций, которые можно использовать в любом в скалярном или списковом
+контексте, неудачные операции как правило, указаны в скалярном контексте
+возвратом неопределенного значения, и в списковом контексте возвратом пустого
+списка.
+--:g
+Для функций, которые могут использоваться в скалярном или контекстном
+контексте, неабортный отказ обычно указывается в скалярном контексте
+посредством возвращая неопределенное значение и в контексте списка, возвращая
+пустой список.
+--
+Для функций, которые могут вызываться как в скалярном так и в списковом
+контексте, неудачные операции обычно определяются возвратом неопределенного
+значения в скалярном контексте и пустого списка в списковом контексте.
+
 
 Remember the following important rule: There is B<no rule> that relates
 the behavior of an expression in list context to its behavior in scalar
