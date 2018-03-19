@@ -294,6 +294,9 @@ L<perlapi/PL_keyword_plugin> для механизма. Если вы испол
 
 =head2 Perl Functions by Category
 X<function>
+--:
+=head2 Функции Perl по категориям
+X<function>
 
 Here are Perl's functions (including things that look like
 functions, like some keywords and named operators)
@@ -317,6 +320,10 @@ than one place.
 
 =item Functions for SCALARs or strings
 X<scalar> X<string> X<character>
+--:
+=item Функции для работы со скалярами или строками
+X<scalar> X<string> X<character>
+
 
 =for Pod::Functions =String
 
@@ -341,6 +348,15 @@ L<C<"fc"> feature|feature/The 'fc' feature> is enabled or if it is
 prefixed with C<CORE::>.  The
 L<C<"fc"> feature|feature/The 'fc' feature> is enabled automatically
 with a C<use v5.16> (or higher) declaration in the current scope.
+--:
+L<C<fc>|/fc EXPR> доступна только если включена поддержка
+L<C<"fc"> feature|feature/функции 'fc'> или если она предваряется
+префиксом C<CORE::>.  L<C<"fc"> feature|feature/Функция 'fc'>
+включена автоматически если объявить C<use v5.16> (или выше) в
+текущей области видимости.
+--:notes
+Найти более подходящий перевод для feature.
+Например как "функциональное средство"/"свойство системы"(multitran)
 
 =item Regular expressions and pattern matching
 X<regular expression> X<regex> X<regexp>
