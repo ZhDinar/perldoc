@@ -360,6 +360,13 @@ L<C<"fc"> feature|feature/функции 'fc'> или если она предв
 
 =item Regular expressions and pattern matching
 X<regular expression> X<regex> X<regexp>
+--:old
+=item Регулярные выражения и поиск по шаблону
+X<regular expression> X<regex> X<regexp>
+--:g
+=item Регулярные выражения и соответствие шаблонов
+X<regular expression> X<regex> X<regexp>
+
 
 =for Pod::Functions =Regexp
 
@@ -372,6 +379,12 @@ L<C<study>|/study SCALAR>
 
 =item Numeric functions
 X<numeric> X<number> X<trigonometric> X<trigonometry>
+--:old
+=item Числовые функции
+X<numeric> X<number> X<trigonometric> X<trigonometry>
+--:g
+=item Числовые функции
+X<numeric> X<number> X<trigonometric> X<trigonometry>
 
 =for Pod::Functions =Math
 
@@ -382,6 +395,13 @@ L<C<sin>|/sin EXPR>, L<C<sqrt>|/sqrt EXPR>, L<C<srand>|/srand EXPR>
 
 =item Functions for real @ARRAYs
 X<array>
+--:g
+=item Функции для реальных @ARRAY
+X<array>
+--:
+=item Функции для реальных массивов
+X<array>
+
 
 =for Pod::Functions =ARRAY
 
