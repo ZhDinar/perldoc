@@ -395,11 +395,13 @@ L<C<sin>|/sin EXPR>, L<C<sqrt>|/sqrt EXPR>, L<C<srand>|/srand EXPR>
 
 =item Functions for real @ARRAYs
 X<array>
+--:old
+=item Обработка массивов
 --:g
 =item Функции для реальных @ARRAY
 X<array>
 --:
-=item Функции для реальных массивов
+=item Обработка массивов
 X<array>
 
 
@@ -412,6 +414,13 @@ L<C<unshift>|/unshift ARRAY,LIST>, L<C<values>|/values HASH>
 
 =item Functions for list data
 X<list>
+--:old
+=item Обработка списков
+--:g
+=item Функции для данных списка 
+X<list>
+--:
+=item Функции для обработки списков
 
 =for Pod::Functions =LIST
 
