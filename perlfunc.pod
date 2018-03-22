@@ -1,7 +1,7 @@
 =head1 NAME
 X<function>
 
-perlfunc - Встроенные функции Perl 
+perlfunc - Встроенные функции Perl
 
 =head1 DESCRIPTION
 
@@ -31,9 +31,9 @@ four scalar arguments.
 контекст для его аргументов, в то время как оператор списка может обеспечить
 как скалярный, так и списковый контекст для своих аргументов.  Если это так,
 скалярные аргументы на первом месте, за которыми следует списковый аргумент,
-который может быть только одним аргументом.  Например, 
-L<C<splice>|/splice ARRAY,OFFSET,LENGTH,LIST> имеет три скалярных аргумента 
-и список, в то время как L<C<gethostbyname>|/gethostbyname NAME> 
+который может быть только одним аргументом.  Например,
+L<C<splice>|/splice ARRAY,OFFSET,LENGTH,LIST> имеет три скалярных аргумента
+и список, в то время как L<C<gethostbyname>|/gethostbyname NAME>
 имеет четыре скалярных аргумента.
 
 In the syntax descriptions that follow, list operators that expect a
@@ -129,7 +129,7 @@ C<time+86_400> always means C<time() + 86_400>.
 Некоторые функции не принимают никаких аргументов и поэтому не работают ни
 унарные или список операторов.
 --:
-Некоторые функции не принимают никаких аргументов и поэтому ведут себя 
+Некоторые функции не принимают никаких аргументов и поэтому ведут себя
 не как унарные или списковые операторы.
 
 
@@ -220,14 +220,14 @@ was never a list to start with.
 запятой там, а не список конкатенации версии запятой. Это означает, что это
 никогда не было списком для начала.
 --:
-Именованный массив в скалярном контексте весьма отличается от того, чем 
-представлялся бы на первый взгляд список в скалярном контексте. Нельзя получить 
+Именованный массив в скалярном контексте весьма отличается от того, чем
+представлялся бы на первый взгляд список в скалярном контексте. Нельзя получить
 список C<(1,2,3)>, находясь в скалярном контексте, потому что компилятор
 знает контекст во время компиляции. В этом месте будет порождаться скалярный
 оператор запятой, вместо конструкции запятой объединения в список.
 Что означает, что это изначально не было списком.
 --:note
-подобрать более подходящий вариант перевода фразы 
+подобрать более подходящий вариант перевода фразы
 "list concatenation version of the comma"
 
 In general, functions in Perl that serve as wrappers for system calls
@@ -417,7 +417,7 @@ X<list>
 --:old
 =item Обработка списков
 --:g
-=item Функции для данных списка 
+=item Функции для данных списка
 X<list>
 --:
 =item Функции для обработки списков
@@ -431,6 +431,13 @@ L<C<unpack>|/unpack TEMPLATE,EXPR>
 
 =item Functions for real %HASHes
 X<hash>
+--:old
+=item Обработка хэшей
+X<hash>
+--:
+=item Функции для реальных хэшей
+X<hash>
+
 
 =for Pod::Functions =HASH
 
@@ -439,6 +446,12 @@ L<C<exists>|/exists EXPR>, L<C<keys>|/keys HASH>,
 L<C<values>|/values HASH>
 
 =item Input and output functions
+X<I/O> X<input> X<output> X<dbm>
+--:old
+=item Функции ввода-вывода
+X<I/O> X<input> X<output> X<dbm>
+--:
+=item Функции ввода-вывода
 X<I/O> X<input> X<output> X<dbm>
 
 =for Pod::Functions =I/O
@@ -469,8 +482,20 @@ L<C<"say"> feature|feature/The 'say' feature> is enabled or if it is
 prefixed with C<CORE::>.  The
 L<C<"say"> feature|feature/The 'say' feature> is enabled automatically
 with a C<use v5.10> (or higher) declaration in the current scope.
+--:
+L<C<say>|/say FILEHANDLE LIST> доступна только если включена поддержка
+L<C<"say"> feature|feature/функции 'say'>  или если она предваряется
+префиксом C<CORE::>.  The
+L<C<"say"> feature|feature/Функция 'say'> включена автоматически
+при объявлении в текущей области видимости C<use v5.10> (или выше).
 
 =item Functions for fixed-length data or records
+--:old
+=item Функции для данных фиксированной длины и записи
+--:g
+=item Функции для данных или записей фиксированной длины
+--:
+=item Функции для данных или записей фиксированной длины
 
 =for Pod::Functions =Binary
 
@@ -484,6 +509,17 @@ L<C<unpack>|/unpack TEMPLATE,EXPR>, L<C<vec>|/vec EXPR,OFFSET,BITS>
 
 =item Functions for filehandles, files, or directories
 X<file> X<filehandle> X<directory> X<pipe> X<link> X<symlink>
+--:old
+=item Функции для указателей файлов, файлов и директорий
+X<file> X<filehandle> X<directory> X<pipe> X<link> X<symlink>
+--:g
+=item Функции для дескрипторов файлов, файлов или каталогов
+X<file> X<filehandle> X<directory> X<pipe> X<link> X<symlink>
+--:
+=item Функции для дескрипторов файлов, файлов или каталогов
+X<file> X<filehandle> X<directory> X<pipe> X<link> X<symlink>
+
+
 
 =for Pod::Functions =File
 
@@ -504,6 +540,16 @@ L<C<utime>|/utime LIST>
 
 =item Keywords related to the control flow of your Perl program
 X<control flow>
+--:old
+=item Управление последовательностью выполнения команд Perl
+X<control flow>
+--:g
+=item Ключевые слова, связанные с потоком управления вашей программой Perl
+X<control flow>
+--:
+=item Ключевые слова, связанные с потоком управления программой на Perl
+X<control flow>
+
 
 =for Pod::Functions =Flow
 
