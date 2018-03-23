@@ -485,7 +485,7 @@ with a C<use v5.10> (or higher) declaration in the current scope.
 --:
 L<C<say>|/say FILEHANDLE LIST> доступна только если включена поддержка
 L<C<"say"> feature|feature/функции 'say'>  или если она предваряется
-префиксом C<CORE::>.  The
+префиксом C<CORE::>.
 L<C<"say"> feature|feature/Функция 'say'> включена автоматически
 при объявлении в текущей области видимости C<use v5.10> (или выше).
 
@@ -574,6 +574,20 @@ automatically with a C<use v5.10> (or higher) declaration in the current
 scope.  In Perl v5.14 and earlier, L<C<continue>|/continue BLOCK>
 required the L<C<"switch"> feature|feature/The 'switch' feature>, like
 the other keywords.
+--:
+L<C<break>|/break> доступна только если вы включили эксперементальную функцию
+L<C<"switch"> feature|feature/The 'switch' feature> или если она предваряется
+префиксом C<CORE::>. L<C<"switch"> feature|feature/The 'switch' feature>
+активирует конструкции C<default>, C<given> и C<when>, которые документированы
+в L<perlsyn/"Конструкция switch">.
+L<C<"switch"> feature|feature/The 'switch' feature> активирована автоматически
+объявлением C<use v5.10> (или выше) в текущей области видимости.  В Perl v5.14
+и ранее, L<C<continue>|/continue BLOCK> требовал
+L<C<"switch"> feature|feature/The 'switch' feature>, как и другие ключевые
+слова.
+--:notes
+Найти более подходящий перевод для Switch Statements
+Switch Statements - Конструкция switch
 
 L<C<evalbytes>|/evalbytes EXPR> is only available with the
 L<C<"evalbytes"> feature|feature/The 'unicode_eval' and 'evalbytes' features>
