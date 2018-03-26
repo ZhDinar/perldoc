@@ -611,6 +611,12 @@ L<C<"current_sub">|feature/Функция 'current_sub'> включены авт
 при объявлении C<use v5.16>(или выше) в текущей области видимости.
 
 =item Keywords related to scoping
+--:old
+=item Ключевые слова для управления областью видимости
+--:g
+=item Ключевые слова, связанные с
+--:
+=item Ключевые слова, связанные с областью видимости
 
 =for Pod::Functions =Namespace
 
