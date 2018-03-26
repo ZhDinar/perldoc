@@ -599,6 +599,16 @@ L<C<"evalbytes">|feature/The 'unicode_eval' and 'evalbytes' features>
 and L<C<"current_sub">|feature/The 'current_sub' feature> features are
 enabled automatically with a C<use v5.16> (or higher) declaration in the
 current scope.
+--:
+L<C<evalbytes>|/evalbytes EXPR> доступна только с 
+L<C<"evalbytes"> feature|feature/The 'unicode_eval' and 'evalbytes' features>
+(см. L<feature>) или если она предваряется C<CORE::>.  L<C<__SUB__>|/__SUB__>
+доступна только с
+L<C<"current_sub"> feature|feature/The 'current_sub' feature> 
+или если она предваряется C<CORE::>. Обе 
+функции L<C<"evalbytes">|feature/Функции 'unicode_eval' и 'evalbytes'> и 
+L<C<"current_sub">|feature/Функция 'current_sub'> включены автоматически
+при объявлении C<use v5.16>(или выше) в текущей области видимости.
 
 =item Keywords related to scoping
 
