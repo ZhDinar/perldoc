@@ -631,6 +631,13 @@ prefixed with C<CORE::>.  The
 L<C<"state"> feature|feature/The 'state' feature> is enabled
 automatically with a C<use v5.10> (or higher) declaration in the current
 scope.
+--:
+L<C<state>|/state VARLIST> доступна только если
+L<C<"state"> feature|feature/конструкция 'state'> активирована или
+если она предваряется C<CORE::>.
+L<Конструкция C<"state">|feature/Конструкция 'state'>  автоматически
+активируется объявлением C<use v5.10>(или выше)  в текущей области
+видимости.
 
 =item Miscellaneous functions
 
