@@ -600,13 +600,13 @@ and L<C<"current_sub">|feature/The 'current_sub' feature> features are
 enabled automatically with a C<use v5.16> (or higher) declaration in the
 current scope.
 --:
-L<C<evalbytes>|/evalbytes EXPR> доступна только с 
+L<C<evalbytes>|/evalbytes EXPR> доступна только с
 L<C<"evalbytes"> feature|feature/The 'unicode_eval' and 'evalbytes' features>
 (см. L<feature>) или если она предваряется C<CORE::>.  L<C<__SUB__>|/__SUB__>
 доступна только с
-L<C<"current_sub"> feature|feature/The 'current_sub' feature> 
-или если она предваряется C<CORE::>. Обе 
-функции L<C<"evalbytes">|feature/Функции 'unicode_eval' и 'evalbytes'> и 
+L<C<"current_sub"> feature|feature/The 'current_sub' feature>
+или если она предваряется C<CORE::>. Обе
+функции L<C<"evalbytes">|feature/Функции 'unicode_eval' и 'evalbytes'> и
 L<C<"current_sub">|feature/Функция 'current_sub'> включены автоматически
 при объявлении C<use v5.16>(или выше) в текущей области видимости.
 
@@ -640,6 +640,10 @@ L<Конструкция C<"state">|feature/Конструкция 'state'>  а�
 видимости.
 
 =item Miscellaneous functions
+--:g
+=item Различные функции
+--:
+=item Различные функции
 
 =for Pod::Functions =Misc
 
@@ -650,6 +654,13 @@ L<C<undef>|/undef EXPR>
 
 =item Functions for processes and process groups
 X<process> X<pid> X<process id>
+--:old
+=item Функции для работы с процессами и группами процессов
+--:g
+=item Функции для процессов и групп процессов
+X<process> X<pid> X<process id>
+--:
+=item Функции для работы с процессами и группами процессов
 
 =for Pod::Functions =Process
 
@@ -665,6 +676,15 @@ L<C<wait>|/wait>, L<C<waitpid>|/waitpid PID,FLAGS>
 
 =item Keywords related to Perl modules
 X<module>
+--:old
+=item Ключевые слова относящиеся к модулям Perl
+X<module>
+--:g
+=item Ключевые слова, связанные с модулями Perl
+X<module>
+--:
+=item Ключевые слова, связанные с модулями Perl
+X<module>
 
 =for Pod::Functions =Modules
 
@@ -674,6 +694,16 @@ L<C<require>|/require VERSION>, L<C<use>|/use Module VERSION LIST>
 
 =item Keywords related to classes and object-orientation
 X<object> X<class> X<package>
+--:old
+=item Функции для реализации классов и объектов
+X<object> X<class> X<package>
+--:g
+=item Ключевые слова, связанные с классами и объектно-ориентированными
+X<object> X<class> X<package>
+--:
+=item Ключевые слова, имеющие отношение к классам и ООП
+X<object> X<class> X<package>
+
 
 =for Pod::Functions =Objects
 
@@ -685,6 +715,16 @@ L<C<untie>|/untie VARIABLE>, L<C<use>|/use Module VERSION LIST>
 
 =item Low-level socket functions
 X<socket> X<sock>
+--:old
+=item Низкоуровневые функции для работы с сокетами
+X<socket> X<sock>
+--:g
+=item Низкоуровневые функции сокетов
+X<socket> X<sock>
+--:
+=item Низкоуровневые функции сокетов
+X<socket> X<sock>
+
 
 =for Pod::Functions =Socket
 
@@ -702,6 +742,15 @@ L<C<socket>|/socket SOCKET,DOMAIN,TYPE,PROTOCOL>,
 L<C<socketpair>|/socketpair SOCKET1,SOCKET2,DOMAIN,TYPE,PROTOCOL>
 
 =item System V interprocess communication functions
+X<IPC> X<System V> X<semaphore> X<shared memory> X<memory> X<message>
+--:old
+=item Функции для межпроцессного взаимодействия в стиле System V
+X<IPC> X<System V> X<semaphore> X<shared memory> X<memory> X<message>
+--:g
+=item Функции межпроцессного взаимодействия системы V
+X<IPC> X<System V> X<semaphore> X<shared memory> X<memory> X<message>
+--:
+=item Функции межпроцессного взаимодействия System V
 X<IPC> X<System V> X<semaphore> X<shared memory> X<memory> X<message>
 
 =for Pod::Functions =SysV
