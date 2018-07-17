@@ -766,6 +766,15 @@ L<C<shmwrite>|/shmwrite ID,STRING,POS,SIZE>
 
 =item Fetching user and group info
 X<user> X<group> X<password> X<uid> X<gid>  X<passwd> X</etc/passwd>
+--:old
+=item Получение информации о пользователях и группах
+X<user> X<group> X<password> X<uid> X<gid>  X<passwd> X</etc/passwd>
+--:g
+=item Получение информации о пользователе и группе
+X<user> X<group> X<password> X<uid> X<gid>  X<passwd> X</etc/passwd>
+--:
+=item Получение информации о пользователе и группе
+X<user> X<group> X<password> X<uid> X<gid>  X<passwd> X</etc/passwd>
 
 =for Pod::Functions =User
 
@@ -778,6 +787,15 @@ L<C<getpwuid>|/getpwuid UID>, L<C<setgrent>|/setgrent>,
 L<C<setpwent>|/setpwent>
 
 =item Fetching network info
+X<network> X<protocol> X<host> X<hostname> X<IP> X<address> X<service>
+--:old
+=item Получение сетевой информации 
+X<network> X<protocol> X<host> X<hostname> X<IP> X<address> X<service>
+--:g
+=item Получение информации о сети
+X<network> X<protocol> X<host> X<hostname> X<IP> X<address> X<service>
+--:
+=item Получение информации о сети
 X<network> X<protocol> X<host> X<hostname> X<IP> X<address> X<service>
 
 =for Pod::Functions =Network
@@ -799,6 +817,18 @@ L<C<setservent>|/setservent STAYOPEN>
 
 =item Time-related functions
 X<time> X<date>
+--:old
+=item Функции для работы со временем 
+X<time> X<date>
+--:g
+=item Временные функции 
+X<time> X<date>
+--:yandex
+=item Функции, связанные со временем 
+X<time> X<date>
+--:
+=item Функции получения времени
+X<time> X<date>
 
 =for Pod::Functions =Time
 
@@ -806,6 +836,10 @@ L<C<gmtime>|/gmtime EXPR>, L<C<localtime>|/localtime EXPR>,
 L<C<time>|/time>, L<C<times>|/times>
 
 =item Non-function keywords
+--:g
+=item Неиспользуемые ключевые слова
+--:
+=item Прочие ключевые слова
 
 =for Pod::Functions =!Non-functions
 
@@ -819,12 +853,37 @@ C<while>, C<x>, C<xor>
 
 =head2 Portability
 X<portability> X<Unix> X<portable>
+--:old
+=head2 Переносимость
+X<portability> X<Unix> X<portable>
+--:g
+=head2 Портативность
+X<portability> X<Unix> X<portable>
+--:
+=head2 Переносимость
+X<portability> X<Unix> X<portable>
 
 Perl was born in Unix and can therefore access all common Unix
 system calls.  In non-Unix environments, the functionality of some
 Unix system calls may not be available or details of the available
 functionality may differ slightly.  The Perl functions affected
 by this are:
+--:old
+Perl родился в системе Unix, поэтому он может использовать все общие для Unix
+системные вызовы. В окружении отличном от Unix, функционал некоторых системных
+вызовов может оказаться недоступным, или функционал может немного различаться.
+К таким функция относятся:
+--:g
+Perl родился в Unix и поэтому может получить доступ ко всем общим Unix
+системные вызовы. В средах, отличных от Unix, функциональность некоторых
+Системные вызовы Unix могут быть недоступны или сведения о доступных
+функциональность может незначительно отличаться. Функции Perl затронуты
+это:
+--:
+Perl родился в системе Unix и поэтому может получить доступ ко всем общим для
+Unix системным вызовам. В средах, отличных от Unix, функциональность некоторых
+системных вызовов может быть недоступна или незначительно отличаться.
+Функции Perl, затронутые здесь:
 
 L<C<-I<X>>|/-X FILEHANDLE>, L<C<binmode>|/binmode FILEHANDLE, LAYER>,
 L<C<chmod>|/chmod LIST>, L<C<chown>|/chown LIST>,
