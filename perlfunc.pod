@@ -1293,6 +1293,36 @@ if any execute bit is set in the mode.  Scripts run by the superuser
 may thus need to do a L<C<stat>|/stat FILEHANDLE> to determine the
 actual mode of the file, or temporarily set their effective uid to
 something else.
+--:old
+Также отметим, что для суперпользователя на локальной файловой системе,
+проверки -r , -R , -w и -W всегда возвращают 1, а -x и -X возвращают 1, если
+установлен хоть один бит исполнения. Поэтому в сценариях, выполняемых
+суперпользователем, может потребоваться выполнение stat(), чтобы определить
+действительный режим файла, либо временно установить другой идентификатор
+пользователя(анг. effective uid).
+--g
+Также обратите внимание, что для суперпользователя в локальных файловых
+системах, -r, -R, -w и -W всегда возвращают 1, а -x и -X возвращают 1 если
+какой-либо бит выполнения установлен в режиме. Скрипты, выполняемые
+суперпользователем может, таким образом, нужно сделать stat FILEHANDLE, чтобы
+определить фактический режим файла или временно установить эффективный uid для
+что-то другое.
+--:
+Также обратите внимание, что для суперпользователя в локальных файловых
+системах, тесты C<-r>, C<-R>, C<-w>, и C<-W> всегда возвращают 1, 
+а C<-x> и C<-X> возвращают 1, если установлен хоть один бит исполнения.
+--:note
+неясно как перевести подфразу "in the mode" в фразе
+"if any execute bit is set in the mode". Если перевести как,
+"если установлен хоть один бит исполнения В РЕЖИМЕ", звучит не очень.
+
+Also note that, for the superuser on the local filesystems, the -r,
+-R, -w, and -W tests always return 1, and -x and -X return 1
+if any execute bit is set in the mode.  Scripts run by the superuser
+may thus need to do a stat FILEHANDLE to determine the
+actual mode of the file, or temporarily set their effective uid to
+something else.
+
 
 If you are using ACLs, there is a pragma called L<C<filetest>|filetest>
 that may produce more accurate results than the bare
