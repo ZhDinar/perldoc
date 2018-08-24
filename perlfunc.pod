@@ -1499,6 +1499,16 @@ C<-l> сохраняют в структуре stat значения, относ
     print "Sticky\n" if -k _;
     print "Text\n" if -T _;
     print "Binary\n" if -B _;
+--:old
+    stat($filename);
+    print "Доступен для чтения \n" if -r _;
+    print "Доступен для записи \n" if -w _;
+    print "Исполняемый \n" if -x _;
+    print "Установлен бит setuid\n" if -u _;
+    print "Установлен бит setgid\n" if -g _;
+    print "Установлен 'липкий бит'\n" if -k _;
+    print "Текстовый\n" if -T _;
+    print "Бинарный\n" if -B _
 
 As of Perl 5.10.0, as a form of purely syntactic sugar, you can stack file
 test operators, in a way that C<-f -w -x $file> is equivalent to
