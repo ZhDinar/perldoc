@@ -1596,6 +1596,21 @@ Client / Server Communication">.
 On systems that support a close-on-exec flag on files, the flag will
 be set for the newly opened file descriptor, as determined by the
 value of L<C<$^F>|perlvar/$^F>.  See L<perlvar/$^F>.
+--:old
+В системах, поддерживающих флаг закрытия файлов при выполнении exec
+(close-on-exec flag on filesу),этот флаг будет установлен для вновь открытого
+файлового дескриптора, в зависимости от значения $^F. См. perlvar.
+--:g
+В системах, поддерживающих флаг close-on-exec в файлах, флаг будет установлен
+для вновь открытого файлового дескриптора, как определено значением L <C <$ ^
+F> | perlvar / $ ^ F>. См. L <perlvar / $ ^ F>. 
+--:
+В системах, поддерживающих флаг close-on-exec дескрипторов файлов, флаг будет
+установлен для дескрипторов вновь открытых файлов, как определено значением
+L<C<$^F>|perlvar/$^F>. См. L<perlvar/$^F>.
+--:note
+понятие close-on-exec описывается здесь: http://wm-help.net/lib/b/book/2075737573/201
+close-on-exec - флаг закрытия файлов при выполнении exec.
 
 =item alarm SECONDS
 X<alarm>
