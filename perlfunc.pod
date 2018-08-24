@@ -1563,6 +1563,14 @@ X<abs> X<absolute>
 
 Returns the absolute value of its argument.
 If VALUE is omitted, uses L<C<$_>|perlvar/$_>.
+--:old
+Возвращает абсолютное значение своего аргумента. Если VALUE опущено, использует $_.
+--:g
+Возвращает абсолютное значение его аргумента. Если VALUE опущено,
+используется L<C<$_>|perlvar/$_>.
+--:
+Возвращает абсолютное значение своего аргумента. Если VALUE опущено, 
+используется L<C<$_>|perlvar/$_>.
 
 =item accept NEWSOCKET,GENERICSOCKET
 X<accept>
@@ -1572,6 +1580,18 @@ X<accept>
 Accepts an incoming socket connect, just as L<accept(2)>
 does.  Returns the packed address if it succeeded, false otherwise.
 See the example in L<perlipc/"Sockets: Client/Server Communication">.
+--:old
+Принимает входящее соединение на сокет, так же как и системный вызов accept(2).
+Возвращает упакованный адрес при успешном соединении и false в противном
+случае. См. примеры в спецификации .
+--:g
+Принимает входящий сокет, так же, как L <accept (2)>. Возвращает упакованный
+адрес, если он преуспел, иначе false. См. Пример в L <perlipc / "Sockets:
+Client / Server Communication">.
+--:
+Принимает входящее соединение на сокет, так же как accept(2). Возвращает
+упакованный адрес при успешном соединении, в ином случае ложное значение.
+См. пример в L<perlipc/"Sockets: Client/Server Communication">.
 
 On systems that support a close-on-exec flag on files, the flag will
 be set for the newly opened file descriptor, as determined by the
