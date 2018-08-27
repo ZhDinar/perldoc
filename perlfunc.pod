@@ -1675,23 +1675,6 @@ amount of time remaining on the previous timer.
 отключает предыдущий таймер, а аргумент C<0> может быть подан для отмены
 предыдущего таймера без запуска нового. Возвращаемое значение представляет
 остаток времени предыдущего таймера.
---:ext
-	Only one timer may be counting at once.
-	-
-    Только один таймер может рассчитывать сразу.
-
-	Each call disables the previous timer, and an argument of C<0> may be supplied to cancel the previous timer without starting a new one.
-	-
-	Каждый вызов отключает предыдущий таймер, а аргумент C <0> может быть подан
-	для отмены предыдущего таймера без запуска нового., Каждый вызов отключает
-	предыдущий таймер, и аргумент C <0> может быть подана для отмены
-	предыдущего таймера без запуска нового.
-
-	The returned value is the amount of time remaining on the previous timer.
-	-
-	Возвращаемое значение - это время, оставшееся на предыдущем таймере.,
-	Возвращаемое значение количество времени, оставшееся на предыдущем таймере.
----
 
 For delays of finer granularity than one second, the L<Time::HiRes> module
 (from CPAN, and starting from Perl 5.8 part of the standard
