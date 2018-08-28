@@ -1685,6 +1685,103 @@ L<C<select>|/select RBITS,WBITS,EBITS,TIMEOUT> leaving the first three
 arguments undefined, or you might be able to use the
 L<C<syscall>|/syscall NUMBER, LIST> interface to access L<setitimer(2)>
 if your system supports it.  See L<perlfaq8> for details.
+--:old
+Чтобы задать время подачи сигналов с большей точностью, чем одна секунда, можно
+применить функцию ualarm(), которую предоставляет модуль Time::HiRes (можно
+найти на CPAN, начиная с Perl 5.8 является частью дистрибутива). Также можно
+использовать 4х-аргументную версию select(), оставляя первые три аргумента
+неопределенными. Еще один вариант задать миллисекунды предоставляет интерфейс
+syscall для обращения к setitimer(2), если система поддерживает его. См.
+perlfaq8 подробнее.
+--:g
+Для задержек с градацией меньше секунды, модуль L<Time::HiRes>(из CPAN и
+начиная с Perl 5.8 является частью стандартного дистрибутива) предоставляет 
+L<C<ualarm>|Time::HiRes/ualarm ( $useconds [, $interval_useconds ] )>.
+
+L<C<select>|/select RBITS,WBITS,EBITS,TIMEOUT>
+	Для задержек более тонкой детализации, чем одна секунда, модуль L <Time ::
+	HiRes> (из CPAN и начиная с Perl 5.8 часть стандартного дистрибутива)
+	предоставляет L <C <ualarm> | Time :: HiRes / ualarm ($ useconds [, $
+	interval_useconds])>. Вы также можете использовать четырехпортовую версию
+	Perl L <C <select> | / select RBITS, WBITS, EBITS, TIMEOUT>, оставив первые
+	три аргумента неопределенными, или вы можете использовать L <C <syscall> |
+	/ syscall NUMBER, LIST> для доступа к L <setitimer (2)>, если ваша система
+	поддерживает его. Подробнее см. L <perlfaq8>.
+
+
+	For delays of finer granularity than one second, the L<Time::HiRes> module
+	(from CPAN, and starting from Perl 5.8 part of the standard distribution)
+	provides L<C<ualarm>|Time::HiRes/ualarm ( $useconds
+
+	Для задержек более тонкой детализации, чем одна секунда, модуль L <Time ::
+	HiRes> (из CPAN и начиная с Perl 5.8 часть стандартного дистрибутива)
+	предоставляет L <C <ualarm> | Time :: HiRes / ualarm ($ useconds, 
+	
+	Для задержки тонкой детализации, чем один второй, L <Time :: HiRes> модуль
+	(из CPAN и начиная с Perl 5.8 частью стандартного дистрибутива)
+	обеспечивает L <С <ualarm> | Время :: HiRes / ualarm ($ useconds
+
+	You may also use Perl's four-argument version of L<C<select>|/select
+	RBITS,WBITS,EBITS,TIMEOUT> leaving the first three arguments undefined, or
+	you might be able to use the L<C<syscall>|/
+
+		Вы также можете использовать четырехпортовую версию Perl L <C <select>
+		| / select RBITS, WBITS, EBITS, TIMEOUT>, оставив первые три аргумента
+		неопределенными, или вы можете использовать L <C <syscall> | /, 
+		
+		Вы также можете использовать четыре-аргумента версию Perl по L <C
+		<выберите> | / выберите RBITS, WBITS, EBITS, АУТ> оставляя первые три
+		аргумента не определено, или вы могли бы использовать L <C <системный
+		вызов> | /
+
+	syscall NUMBER, LIST> interface to access L<setitimer(2)> if your system supports it.
+
+	syscall NUMBER, LIST> для доступа к L <setitimer (2)>, если ваша система
+	поддерживает его., системный вызов ЧИСЛО, LIST> интерфейс для доступа L
+	<setitimer (2)> если ваша система поддерживает его.
+
+-----
+http://valera.asf.ru/perl/help/name.php?name=alarm
+
+	Функция alarm предназначена для планирования генерации сигнала SIGALARM.Этот
+	сигнал будет передан процессу через указанное в качестве аргумента количество
+	секунд. Если аргумент не указан, будет использоваться значение переменной $_.
+
+	ПРИМЕЧАНИЕ
+
+	Следует иметь в виду, что на некоторых машинах из-за особенностей реализации
+	таймера интервал времени может быть на единицу меньше, чем вы указываете.
+
+	С помощью alarm вы можете установить только один таймер. Каждый последующий
+	вызов отменяет действие предыдущего таймера, а для отмены действия таймера
+	вообще вы можете передать в качестве аргумента 0. Значение, возвращаемое
+	функцией, представляет собой временной интервал, «недосчитанный» предыдущим
+	таймером. В тех случаях, когда точность отсчета задержки в одну секунду для
+	вашего приложения оказывается недостаточной, вы можете использовать вызов
+	syscall, c помощью которого можно получить доступ к процедуре settimer.
+	Альтернативой может служить использование функции select. Не рекомендуется
+	использовать одновременно вызовы alarm и sleep. Если вы планируете использовать
+	alarm для формирования интервала тайм-аута системного вызова, потребуется
+	использовать конструкцию eval — die. Вы не можете полагаться на сигнал,
+	вызванный отказом в выполнении системного вызова за счет проверки равенства
+	переменной $! значению ЕINTR, поскольку некоторые версии Perl самостоятельно
+	устанавливают обработчики системных сигналов. А вот пара eval — die работает
+	всегда! Пример:
+
+	eval {
+		local $SIG{ALRM} = sub { die "alarm\n" };  # \n обязательно!
+		alarm  $timeout;
+		$nread = sysread SOCKET, $buffer, $size;
+		alarm 0;
+	};
+
+	die if $@ && $@ ne "alarm\n";  # передача ошибок дальше
+	if ($@) {
+		# тайм-аут
+	} else {
+		# все в порядке...
+	}
+-----
 
 It is usually a mistake to intermix L<C<alarm>|/alarm SECONDS> and
 L<C<sleep>|/sleep EXPR> calls, because L<C<sleep>|/sleep EXPR> may be
