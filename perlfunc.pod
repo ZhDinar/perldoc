@@ -1715,6 +1715,19 @@ L<C<ualarm>|Time::HiRes/ualarm ( $useconds [, $interval_useconds ] )>.
 It is usually a mistake to intermix L<C<alarm>|/alarm SECONDS> and
 L<C<sleep>|/sleep EXPR> calls, because L<C<sleep>|/sleep EXPR> may be
 internally implemented on your system with L<C<alarm>|/alarm SECONDS>.
+--:old
+Обычно смешивание вызовов alarm и sleep является ошибкой, потому что в вашей
+системе функция sleep может быть внутренне реализована с использованием
+механизма системного вызова alarm(2).
+--:g
+Обычно бывает ошибкой смешивать вызовы L <C <alarm> | / alarm SECONDS> и L <C
+<sleep> | / sleep EXPR>, потому что L <C <sleep> | / sleep EXPR> может быть
+внутренне реализован на вашем система с L <C <alarm> | / alarm SECONDS>.
+--:
+Обычно бывает ошибкой смешивать вызовы L<C<alarm>|/alarm SECONDS> и
+L<C<sleep>|/sleep EXPR>, потому что в вашей системе функция 
+L<C<sleep>|/sleep EXPR> может быть внутренне реализована с использованием
+L<C<alarm>|/alarm SECONDS>.
 
 If you want to use L<C<alarm>|/alarm SECONDS> to time out a system call
 you need to use an L<C<eval>|/eval EXPR>/L<C<die>|/die LIST> pair.  You
