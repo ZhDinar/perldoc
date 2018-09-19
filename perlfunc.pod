@@ -1736,6 +1736,33 @@ L<C<$!>|perlvar/$!> set to C<EINTR> because Perl sets up signal handlers
 to restart system calls on some systems.  Using
 L<C<eval>|/eval EXPR>/L<C<die>|/die LIST> always works, modulo the
 caveats given in L<perlipc/"Signals">.
+--:old
+Если вы планируете использовать alarm для формирования тайм-аута системного
+вызова, необходимо использовать пару eval/die. Не стоит полагаться на то, что,
+в случае, если системный вызов не отработает должным образом, переменная $!
+будет содержать значение EINTR, поскольку на некоторых операционных системах,
+Perl устанавливает обработчики сигналов таким образом, чтобы они перезапускали
+системные вызовы. А вот связка eval/die работает всегда, возможные сложности
+описаны в perlipc/"Сигналы".
+--:g
+Если вы хотите использовать <будильник> для выключения системного вызова, вам
+нужно использовать пару <eval>. Вы не можете полагаться на тревогу, вызвав
+отказ системного вызова с помощью $! установлен на C <EINTR>, потому что Perl
+настраивает обработчики сигналов для перезапуска системных вызовов в некоторых
+системах. Использование <eval> всегда работает, по модулю предостережений,
+указанных в L <perlipc / "Signals">.
+--:
+Если вы хотите использовать L<C<alarm>|/alarm SECONDS> для прерывания системного
+вызова, задействуйте связку L<C<eval>|/eval EXPR>/L<C<die>|/die LIST>.  You
+can't rely on the alarm causing the system call to fail with
+L<C<$!>|perlvar/$!> set to C<EINTR> because Perl sets up signal handlers
+to restart system calls on some systems.  Using
+L<C<eval>|/eval EXPR>/L<C<die>|/die LIST> always works, modulo the
+caveats given in L<perlipc/"Signals">.
+--:note
+restart system calls/перезапуск системных вызовов 
+(инфа https://books.google.ru/books?id=0dgxNHCCHOQC&pg=PA181&lpg=PA181&dq=%D0%BF%D0%B5%D1%80%D0%B5%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA+%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE+%D0%B2%D1%8B%D0%B7%D0%BE%D0%B2%D0%B0&source=bl&ots=uPjqkQB1fm&sig=96DrA33zstQlQDDepjrvAzw4UmU&hl=ru&sa=X&ved=2ahUKEwj_1fvS95HdAhUGESwKHQzFC_EQ6AEwAHoECAEQAQ#v=onepage&q=%D0%BF%D0%B5%D1%80%D0%B5%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%B2%D1%8B%D0%B7%D0%BE%D0%B2%D0%B0&f=false_)
+(книга "Разработка приложений в среде Linux, 2-е издание" Глава 12 стр. 181)
 
     eval {
         local $SIG{ALRM} = sub { die "alarm\n" }; # NB: \n required
