@@ -1753,16 +1753,33 @@ Perl устанавливает обработчики сигналов таки
 указанных в L <perlipc / "Signals">.
 --:
 Если вы хотите использовать L<C<alarm>|/alarm SECONDS> для прерывания системного
-вызова, задействуйте связку L<C<eval>|/eval EXPR>/L<C<die>|/die LIST>.  You
-can't rely on the alarm causing the system call to fail with
-L<C<$!>|perlvar/$!> set to C<EINTR> because Perl sets up signal handlers
-to restart system calls on some systems.  Using
-L<C<eval>|/eval EXPR>/L<C<die>|/die LIST> always works, modulo the
-caveats given in L<perlipc/"Signals">.
+вызова, задействуйте связку L<C<eval>|/eval EXPR>/L<C<die>|/die LIST>.  Не стоит
+полагаться на то, что alarm приводит к отказу от системного вызова с
+установкой значения C<EINTR> в переменной L<C<$!>|perlvar/$!>, потому что
+Perl настраивает обработчики сигналов на перезапуск системных вызовов в некоторых
+системах.
 --:note
 restart system calls/перезапуск системных вызовов 
 (инфа https://books.google.ru/books?id=0dgxNHCCHOQC&pg=PA181&lpg=PA181&dq=%D0%BF%D0%B5%D1%80%D0%B5%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA+%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE+%D0%B2%D1%8B%D0%B7%D0%BE%D0%B2%D0%B0&source=bl&ots=uPjqkQB1fm&sig=96DrA33zstQlQDDepjrvAzw4UmU&hl=ru&sa=X&ved=2ahUKEwj_1fvS95HdAhUGESwKHQzFC_EQ6AEwAHoECAEQAQ#v=onepage&q=%D0%BF%D0%B5%D1%80%D0%B5%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%B2%D1%8B%D0%B7%D0%BE%D0%B2%D0%B0&f=false_)
 (книга "Разработка приложений в среде Linux, 2-е издание" Глава 12 стр. 181)
+--:note
+о прерывании сигналов в Perl:
+http://qaru.site/questions/5828901/does-join-in-perl-threads-block-sigalrm
+..
+Ошибки системных вызовов:
+https://it.wikireading.ru/34189
+..
+о EINTR:
+https://wm-help.net/lib/b/book/1268775764/53
+| Одни из кодов, с которым приходится сталкиваться наиболее часто, особенно в
+| функциях ввода-вывода, — это EINTR . Ряд функций, в частности read(),select() и
+| sleep(), требует определенного времени на выполнение.  Они называются
+| блокирующими, так как выполнение программы приостанавливается до тех пор, пока
+| функция не завершится. Но если программа, будучи заблокированной, принимает
+| сигнал, функция завершается, не закончив выполнение операции. В данном случае в
+| переменную errno записывается значение EINTR. Обычно в подобной ситуации
+| следует повторно выполнить системный вызов.
+
 
     eval {
         local $SIG{ALRM} = sub { die "alarm\n" }; # NB: \n required
