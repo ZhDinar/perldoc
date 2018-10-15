@@ -1796,8 +1796,12 @@ https://wm-help.net/lib/b/book/1268775764/53
     }
 
 For more information see L<perlipc>.
+--:
+Для получения дополнительной информации см. L<perlipc>.
 
 Portability issues: L<perlport/alarm>.
+--:
+Вопросы переносимости: L<perlport/alarm>.
 
 =item atan2 Y,X
 X<atan2> X<arctangent> X<tan> X<tangent>
