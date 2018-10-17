@@ -1809,17 +1809,42 @@ X<atan2> X<arctangent> X<tan> X<tangent>
 =for Pod::Functions arctangent of Y/X in the range -PI to PI
 
 Returns the arctangent of Y/X in the range -PI to PI.
+--:
+Возвращает арктангенс Y/X в диапазоне от -PI до PI.
 
 For the tangent operation, you may use the
 L<C<Math::Trig::tan>|Math::Trig/B<tan>> function, or use the familiar
 relation:
+--:old
+Для вычисления тангенсов можно обратиться к к функции Math::Trig::tan либо
+использовать известное соотношение:
+--:g
+Для касательной операции вы можете использовать функцию Math :: Trig :: tan 
+или использовать знакомое отношение:
+--:
+Для вычисления тангенса можно обратиться к к функции
+L<C<Math::Trig::tan>|Math::Trig/B<tan>> либо использовать известное
+соотношение:
 
     sub tan { sin($_[0]) / cos($_[0])  }
 
 The return value for C<atan2(0,0)> is implementation-defined; consult
 your L<atan2(3)> manpage for more information.
+--:old
+Возвращаемое значение atan2(0,0) определяется реализацией. Обратитесь к
+странице руководства atan2(3) за дополнительной информацией.
+--:g
+Возвращаемое значение для <atan2> определяется реализацией; обратитесь за
+помощью к странице <atan2>> manpage для получения дополнительной информации.
+--:
+Возвращаемое значение C<atan2(0,0)> определяется реализацией; обратитесь
+к справочной странице L<atan2(3)> за дополнительной информацией.
+--:note
+manpage: https://www.multitran.ru/c/m.exe?t=4504785_2_1&s1=MANPAGE
 
 Portability issues: L<perlport/atan2>.
+--:
+Вопросы переносимости: L<perlport/atan2>.
 
 =item bind SOCKET,NAME
 X<bind>
