@@ -1855,6 +1855,19 @@ Binds a network address to a socket, just as L<bind(2)>
 does.  Returns true if it succeeded, false otherwise.  NAME should be a
 packed address of the appropriate type for the socket.  See the examples in
 L<perlipc/"Sockets: Client/Server Communication">.
+--:old
+Прикрепляет сетевой адрес сокету, как это делает bind(2). Возвращает значение
+"истина", если это удалось, и "ложь" в противном случае. NAME должно быть
+упакованным адресом сокета, имеющим надлежащий тип. См. примеры в
+--:g
+Привязывает сетевой адрес к сокету, как это делает <bind (2)>. Возвращает true,
+если это удалось, false в противном случае. NAME должен быть упакованным
+адресом соответствующего типа для сокета. См. Примеры в <perlipc>.
+--:
+Связывает сетевой адрес с сокетом, как это делает L<bind(2)>. Возвращает
+истинное значение в случае успеха, и ложное значение в противном случае.
+--:note
+page:780
 
 =item binmode FILEHANDLE, LAYER
 X<binmode> X<binary> X<text> X<DOS> X<Windows>
