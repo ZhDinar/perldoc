@@ -1,0 +1,3 @@
+#!/bin/bash
+
+vim +/CURRENT_DOT perlfunc.pod

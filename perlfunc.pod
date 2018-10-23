@@ -1902,6 +1902,8 @@ L<C<$!>|perlvar/$!> (errno).
 --:note
 page:781
 
+--:CURRENT_DOT
+
 On some systems (in general, DOS- and Windows-based systems)
 L<C<binmode>|/binmode FILEHANDLE, LAYER> is necessary when you're not
 working with a text file.  For the sake of portability it is a good idea
