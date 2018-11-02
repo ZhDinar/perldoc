@@ -1905,18 +1905,47 @@ L<C<$!>|perlvar/$!> (errno).
 --:note
 page:781
 
---:CURRENT_DOT
-
 On some systems (in general, DOS- and Windows-based systems)
 L<C<binmode>|/binmode FILEHANDLE, LAYER> is necessary when you're not
 working with a text file.  For the sake of portability it is a good idea
 always to use it when appropriate, and never to use it when it isn't
 appropriate.  Also, people can set their I/O to be by default
 UTF8-encoded Unicode, not bytes.
+--:old
+в некоторых системах (обычно в системах dos- и windows) необходимо использовать
+binmode(), когда вы работаете не с текстовым файлом. в целях портативности
+будет хорошей практикой всегда использовать ее при необходимости, и никогда не
+использовать там, где она не подходит. кроме того, люди могут устанавливать
+свои режимы ввода-вывода по умолчанию для utf8-закодированных данных, а не
+байтов.
+--:g
+На некоторых системах (в общем, DOS- и Windows-системах) <binmode> необходим,
+когда вы не работаете с текстовым файлом. Для удобства переноски рекомендуется
+всегда использовать его, когда это необходимо, и никогда не использовать его,
+когда это не подходит. Кроме того, люди могут устанавливать свой I / O по
+умолчанию по кодировке UTF8 Unicode, а не по байтам.
+--:
+На некоторых системах (обычно, DOS- и Windows-системах) необходимо использовать
+L<C<binmode>|/binmode FILEHANDLE, LAYER>, когда работа ведется не с текстовым
+файлом. В целях переносимости рекомендуется всегда использовать ее, когда это
+необходимо, и никогда не использовать, где это не уместно. Кроме того, люди
+могут устанавливать свои режимы ввода-вывода по умолчанию в кодировке UTF8
+Unicode, а не байтов.
+--:note
 
 In other words: regardless of platform, use
 L<C<binmode>|/binmode FILEHANDLE, LAYER> on binary data, like images,
 for example.
+--:old
+Другими словами, независимо от платформы, используйте binmode() над бинарными
+данными, например такими, как изображения.
+--:g
+другими словами: независимо от платформы, используйте c <binmode> для двоичных данных, например изображений.
+--:
+Другими словами: независимо от платформы, используйте L<C<binmode>|/binmode FILEHANDLE, LAYER>
+для двоичных данных, например изображений.
+
+--:CURRENT_DOT
 
 If LAYER is present it is a single string, but may contain multiple
 directives.  The directives alter the behaviour of the filehandle.
