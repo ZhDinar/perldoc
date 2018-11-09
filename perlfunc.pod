@@ -1945,11 +1945,21 @@ for example.
 Другими словами: независимо от платформы, используйте L<C<binmode>|/binmode FILEHANDLE, LAYER>
 для двоичных данных, например изображений.
 
---:CURRENT_DOT
-
 If LAYER is present it is a single string, but may contain multiple
 directives.  The directives alter the behaviour of the filehandle.
 When LAYER is present, using binmode on a text file makes sense.
+--:old
+Если указан уровень LAYER, он является одной строкой, но может содержать
+несколько директив. Директивы изменяют поведение дескриптора. Когда LAYER
+указан, использование binmode над текстовым файлом имеет смысл.
+--:g
+Если присутствует LAYER, это одна строка, но может содержать несколько
+директив. Директивы изменяют поведение дескриптора файла. Когда LAYER
+присутствует, использование binmode в текстовом файле имеет смысл.
+--:
+Если присутствует LAYER, это одна строка, но может содержать несколько
+директив. Директивы изменяют поведение дескриптора. Когда LAYER присутствует,
+использование binmode над текстовым файлом имеет смысл.
 
 If LAYER is omitted or specified as C<:raw> the filehandle is made
 suitable for passing binary data.  This includes turning off possible CRLF
@@ -1959,6 +1969,9 @@ Camel, 3rd edition) or elsewhere, C<:raw> is I<not> simply the inverse of C<:crl
 Other layers that would affect the binary nature of the stream are
 I<also> disabled.  See L<PerlIO>, L<perlrun>, and the discussion about the
 PERLIO environment variable.
+
+--:CURRENT_DOT
+
 
 The C<:bytes>, C<:crlf>, C<:utf8>, and any other directives of the
 form C<:...>, are called I/O I<layers>.  The L<open> pragma can be used to
