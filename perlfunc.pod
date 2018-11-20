@@ -1969,6 +1969,35 @@ Camel, 3rd edition) or elsewhere, C<:raw> is I<not> simply the inverse of C<:crl
 Other layers that would affect the binary nature of the stream are
 I<also> disabled.  See L<PerlIO>, L<perlrun>, and the discussion about the
 PERLIO environment variable.
+--:old
+Если LAYER опущен или указан как :raw,то дескриптор файла становится пригодным
+для передачи бинарных данных. Это включает в себя отключение возможных
+переводов CRLF и маркировки его как байт (в отличие от символов Юникода).
+Отметим, что несмотря на то, что может подразумеваться в "Программирование на
+Perl" (Камел, 3-е издание) или где-либо еще, :raw не просто обратна :crlf.
+Другие уровни, которые могут повлиять на бинарный характер потока также
+отключены. См. PerlIO, perlrun и обсуждение переменной среды PERLIO.
+--:g
+If LAYER is omitted or specified as <:raw the filehandle is made
+suitable for passing binary data.  This includes turning off possible CRLF
+translation and marking it as bytes (as opposed to Unicode characters).
+Note that, despite what may be implied in <"Programming Perl" (the
+Camel, 3rd edition) or elsewhere, <:raw> is <not> simply the inverse of <:crlf>.
+Other layers that would affect the binary nature of the stream are
+<also> disabled.  See <PerlIO>, <perlrun>, and the discussion about the
+PERLIO environment variable.
+--:g
+Если LAYER опущен или указан как <: raw, создается файл-дескриптор
+подходит для передачи двоичных данных. Это включает отключение CRLF
+перевод и обозначение его как байтов (в отличие от символов Unicode).
+Обратите внимание, что, несмотря на то, что может подразумеваться в <«Программирование Perl» (
+Camel, 3-е издание) или в другом месте, <: raw> is <not> просто обратный <: crlf>.
+Другие слои, которые влияют на двоичный характер потока,
+<также> отключено. См. <PerlIO>, <perlrun> и обсуждение
+Переменная среды PERLIO.
+--:
+
+
 
 --:CURRENT_DOT
 
