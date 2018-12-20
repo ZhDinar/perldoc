@@ -2010,7 +2010,6 @@ establish default I/O layers.
 C<:...>, называются уровнями ввода-вывода. Для установки уровней ввода-вывода
 по умолчанию можно использовать прагму L<open>.
 
---:CURRENT_DOT
 I<The LAYER parameter of the L<C<binmode>|/binmode FILEHANDLE, LAYER>
 function is described as "DISCIPLINE" in "Programming Perl, 3rd
 Edition".  However, since the publishing of this book, by many known as
@@ -2018,6 +2017,30 @@ Edition".  However, since the publishing of this book, by many known as
 from "discipline" to "layer".  All documentation of this version of Perl
 therefore refers to "layers" rather than to "disciplines".  Now back to
 the regularly scheduled documentation...>
+--:old
+Параметр LAYER функции binmode() описывается как "Дисциплина" в книге
+"Программирование на Perl, 3-го издания. Однако, с тех пор консенсус именования
+данной функциональности сместилась с "дисциплина" на "уровень". По этой причине
+в документации текущей версии Perl мы используем понятие "уровни", а не
+"дисциплины".
+--:g
+Параметр LAYER функции binmode описан как «DISCIPLINE» в «Программирование на
+Perl, 3-е издание». Однако после публикации этой книги, известной многим как
+«Camel III», консенсус в отношении названия этой функциональности перешел от
+«дисциплины» к «слою». Поэтому вся документация этой версии Perl относится к
+«слоям», а не к «дисциплинам». Теперь вернемся к регулярной документации ...
+--:
+I<Параметр LAYER функции L<C<binmode>|/binmode FILEHANDLE, LAYER> описывается
+как "дисциплина" в "Программирование на Perl, 3-го издания. Однако после
+публикации этой книги, известной многим как "Camel III", консенсус именования
+данной функциональности сместился с "дисциплины" на "уровень".  Поэтому во всей
+документации текущей версии Perl используется понятие "слой" а не "дисциплина".
+Теперь вернемся к текущей документации..>
+--:note
+найти более подходящий вариант перевода:
+	"back to the regularly scheduled documentation"
+
+--:CURRENT_DOT
 
 To mark FILEHANDLE as UTF-8, use C<:utf8> or C<:encoding(UTF-8)>.
 C<:utf8> just marks the data as UTF-8 without further checking,
