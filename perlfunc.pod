@@ -2040,12 +2040,22 @@ I<Параметр LAYER функции L<C<binmode>|/binmode FILEHANDLE, LAYER>
 найти более подходящий вариант перевода:
 	"back to the regularly scheduled documentation"
 
---:CURRENT_DOT
-
 To mark FILEHANDLE as UTF-8, use C<:utf8> or C<:encoding(UTF-8)>.
 C<:utf8> just marks the data as UTF-8 without further checking,
 while C<:encoding(UTF-8)> checks the data for actually being valid
 UTF-8.  More details can be found in L<PerlIO::encoding>.
+--:old
+Чтобы отметить FILEHANDLE как UTF-8, используйте :utf8 или :encoding(UTF-8).
+:utf8 только помечает данные как UTF-8 без дополнительной проверки, в то время
+как :encoding(UTF-8) проверяет данные на фактическую валидность UTF-8.
+Подробности можно найти в PerlIO::encoding.
+--:g
+Чтобы пометить FILEHANDLE как UTF-8, используйте C<:utf8> или C<:encoding(UTF-8)>.
+C<:utf8> просто маркирует данные как UTF-8 без дополнительной проверки,
+в то время как C<:encoding(UTF-8)> проверяет данные на фактическую валидность
+UTF-8.  Более подробную информацию можно найти в L<PerlIO::encoding>.
+
+--:CURRENT_DOT
 
 In general, L<C<binmode>|/binmode FILEHANDLE, LAYER> should be called
 after L<C<open>|/open FILEHANDLE,EXPR> but before any I/O is done on the
