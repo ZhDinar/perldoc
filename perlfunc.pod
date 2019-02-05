@@ -2052,13 +2052,11 @@ UTF-8.  More details can be found in L<PerlIO::encoding>.
 :utf8 только помечает данные как UTF-8 без дополнительной проверки, в то время
 как :encoding(UTF-8) проверяет данные на фактическую валидность UTF-8.
 Подробности можно найти в PerlIO::encoding.
---:g
+--:
 Чтобы пометить FILEHANDLE как UTF-8, используйте C<:utf8> или C<:encoding(UTF-8)>.
 C<:utf8> просто маркирует данные как UTF-8 без дополнительной проверки,
 в то время как C<:encoding(UTF-8)> проверяет данные на фактическую валидность
 UTF-8.  Более подробную информацию можно найти в L<PerlIO::encoding>.
-
---:CURRENT_DOT
 
 In general, L<C<binmode>|/binmode FILEHANDLE, LAYER> should be called
 after L<C<open>|/open FILEHANDLE,EXPR> but before any I/O is done on the
@@ -2070,6 +2068,38 @@ The C<:encoding> layer sometimes needs to be called in
 mid-stream, and it doesn't flush the stream.  C<:encoding>
 also implicitly pushes on top of itself the C<:utf8> layer because
 internally Perl operates on UTF8-encoded Unicode characters.
+--:old
+В общем, binmode() должен вызываться после open(), но до операций ввода-вывода
+над дескриптором файла. Вызов binmode() обычно сбрасывает любые ожидающие
+буферизованные данные вывода (и, возможно, ожидающие данные ввода) дескриптора.
+Исключением является уровень :encoding, который изменяет для дескриптора
+кодировку по умолчанию, см . Уровень :encoding иногда необходимо вызывать в
+середине потока и это не сбрасывает поток. :encoding также неявно задействует
+уровень :utf8, поскольку внутренне Perl оперирует над utf-8 кодированными
+символами.
+--:g
+В общем случае <binmode> должен вызываться после <open>, но до того, как будет
+выполнен какой-либо ввод-вывод для дескриптора файла. Вызов <binmode> обычно
+сбрасывает любые ожидающие буферизованные выходные данные (и, возможно,
+ожидающие входные данные) на дескриптор. Исключением является слой C <:
+encoding>, который изменяет кодировку символов дескриптора по умолчанию. Слой C
+<: encoding> иногда нужно вызывать в среднем потоке, и он не сбрасывает поток.
+C <: encoding> также неявно помещает поверх себя слой C <: utf8>, потому что
+внутри Perl работает с символами Unicode в кодировке UTF8.
+--:
+В общем случае, L<C<binmode>|/binmode FILEHANDLE, LAYER> должен вызываться
+после L<C<open>|/open FILEHANDLE,EXPR> но до того, как будет
+выполнен какой-либо ввод-вывод для дескриптора файла.
+Вызов L<C<binmode>|/binmode FILEHANDLE, LAYER> обычно сбрасывает любые
+ожидающие буферизованные выходные данные (и возможно, ожидающие входные данные)
+дескриптора.  Исключением этого является уровень C<:encoding>, который  изменяет
+для дескриптора кодировку символов по умолчанию. Иногда бывает необходимость
+вызывать уровень C<:encoding> в середине потока и это не сбрасывает поток.
+C<:encoding> также неявно задействует уровень C<:utf8>, 
+посколько внутренне Perl оперирует символами Unicode в кодировке UTF8.
+
+--:CURRENT_DOT
+
 
 The operating system, device drivers, C libraries, and Perl run-time
 system all conspire to let the programmer treat a single
