@@ -1,2 +1,2 @@
 #!/bin/bash
-/bin/sh /usr/bin/xdg-open "$(cat .book_location)" 2>/dev/null
+okular "$(cat .book_location)" "$@" >/dev/null & 2>&1
