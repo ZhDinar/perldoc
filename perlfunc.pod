@@ -2127,8 +2127,6 @@ n>) как терминатор строки, независимо от внеш
 текстового файла соответствует внутреннему представлению, но на некоторых
 платформах внешнее представление C<\n> состоит из более чем одного символа.
 
---:CURRENT_DOT
-
 All variants of Unix, Mac OS (old and new), and Stream_LF files on VMS use
 a single character to end each line in the external representation of text
 (even though that single character is CARRIAGE RETURN on old, pre-Darwin
@@ -2140,6 +2138,85 @@ L<C<binmode>|/binmode FILEHANDLE, LAYER> on these systems, C<\cM\cJ>
 sequences on disk will be converted to C<\n> on input, and any C<\n> in
 your program will be converted back to C<\cM\cJ> on output.  This is
 what you want for text files, but it can be disastrous for binary files.
+--:old
+Все вариации Unix, Mac OS(старый и новый), и файлы Stream_LF в VMS используют
+один символ конца каждой строки во внешнем представлении текста (даже, если это
+один символ возврата каретки в старом, pre-Darwein olavors of Mac OS и перевода
+строки в Unix и в большинстве VMS файлов). В других системах, подобных OS/2,
+Dos и в различных разновидностях MS-Windows, ваша программа видит \n как один
+символ \cJ, но что хранится в текстовых файлах является двумя символами \cM\cJ.
+Это означает, что, если вы не используете binmode() в этих системах,
+последовательности \cM\cJ на диске будут преобразованы в \n на вводе и любые \n
+вашей программы будут преобразованы обратно в \cM\cJ на выводе. Это то что вам
+нужно для текстовых файлов, но это может быть катастрофическим для двоичных
+файлов.
+--:g
+Во всех вариантах файлов Unix, Mac OS (старых и новых) и Stream_LF в VMS
+используется один символ для завершения каждой строки во внешнем представлении
+текста (даже если этот единственный символ является символом возврата каретки в
+старых версиях Mac, предшествовавших Дарвину) ОС и является LINE FEED для Unix
+и большинства файлов VMS). В других системах, таких как OS / 2, DOS и различные
+разновидности MS-Windows, ваша программа видит \ n как простой \ cJ, но в
+текстовых файлах хранятся два символа \ cM \ cJ. Это означает, что если вы не
+используете binmode в этих системах, последовательности \ cM \ cJ на диске
+будут преобразованы в \ n на входе, а любые \ n в вашей программе будут
+преобразованы обратно в \ cM \ cJ на выходе. Это то, что вы хотите для
+текстовых файлов, но это может иметь катастрофические последствия для двоичных
+файлов.
+--:
+Во всех вариациях Unix, Mac OS (старый и новый), и файлах формата Stream_LF в VMS
+используется один символ перевода строки во внешнем представлении текста (даже если
+этот единственный символ является символом возврата каретки в файлах старых pre-Darwin версиях
+Mac, переводом строки в файлах в системе Unix и в большинстве систем VMS).
+В других системах, таких как OS/2, DOS, и в различных разновидностях MS-Windows,
+ваша программа видит C<\n> как простой C<\cJ>, но то что хранится в текстовых
+файлах является двумя символами C<\cM\cJ>.
+
+--:CURRENT_DOT
+
+--:process
+and is LINE FEED on Unix and most VMS files
+
+| In other systems like OS/2, DOS, and the various flavors of MS-Windows, your
+| program sees a C<\n> as a simple C<\cJ>, but what's stored in text files are
+| the two characters C<\cM\cJ>. 
+| 
+| В других системах, подобных OS/2, Dos и в различных разновидностях MS-Windows,
+| ваша программа видит \n как один символ \cJ, но что хранится в текстовых файлах
+| является двумя символами \cM\cJ.
+| 
+| В других системах, таких как OS / 2, DOS и различные
+| разновидности MS-Windows, ваша программа видит \ n как простой \ cJ, но в
+| текстовых файлах хранятся два символа \ cM \ cJ
+
+--:note
+|---------------------------------------------------------------------------
+| https://groups.google.com/forum/#!topic/comp.os.vms/QdGywu7_Vxk
+|---------------------------------------------------------------------------
+| Gene Homan wrote:
+| > Does anyone know what the end of line character is in VMS or, better yet,
+| > if there is a utility (preferably that runs on Solaris, Linux, etc) to
+| > convert VMS ascii txt files to UNIX format?
+| a VMS file in STREAM format uses <CR><LF> as EOL
+| a VMS file in STREAM_LF format uses <LF> as EOL
+| a VMS file in STREAM_CR format uses <CR> as EOL
+| a VMS file in VARIABLE LENGTH, VFC, FIXED LENGTH or UNDEFINED format do
+| not use an EOL marker
+| 
+| The C RTL on VMS interfaces the physical format as a logical <LF>
+| terminated
+| format for files opened in text mode.
+| 
+| Text files FTP'ed from VMS to Unix should automatically be converted to
+| <LF> format (if FTP'ed in proper text mode).
+| 
+| Confused ?
+| 
+| If you try and post some more details about what you have and what the
+| problem
+| is, then maybe we can give you some better and more specific advice.
+--:note
+search: vms file format stream-lf
 
 Another consequence of using L<C<binmode>|/binmode FILEHANDLE, LAYER>
 (on some systems) is that special end-of-file markers will be seen as
