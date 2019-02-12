@@ -2171,24 +2171,8 @@ Mac, переводом строки в файлах в системе Unix и �
 В других системах, таких как OS/2, DOS, и в различных разновидностях MS-Windows,
 ваша программа видит C<\n> как простой C<\cJ>, но то что хранится в текстовых
 файлах является двумя символами C<\cM\cJ>.
-
---:CURRENT_DOT
-
 --:process
 and is LINE FEED on Unix and most VMS files
-
-| In other systems like OS/2, DOS, and the various flavors of MS-Windows, your
-| program sees a C<\n> as a simple C<\cJ>, but what's stored in text files are
-| the two characters C<\cM\cJ>. 
-| 
-| В других системах, подобных OS/2, Dos и в различных разновидностях MS-Windows,
-| ваша программа видит \n как один символ \cJ, но что хранится в текстовых файлах
-| является двумя символами \cM\cJ.
-| 
-| В других системах, таких как OS / 2, DOS и различные
-| разновидности MS-Windows, ваша программа видит \ n как простой \ cJ, но в
-| текстовых файлах хранятся два символа \ cM \ cJ
-
 --:note
 |---------------------------------------------------------------------------
 | https://groups.google.com/forum/#!topic/comp.os.vms/QdGywu7_Vxk
@@ -2217,6 +2201,8 @@ and is LINE FEED on Unix and most VMS files
 | is, then maybe we can give you some better and more specific advice.
 --:note
 search: vms file format stream-lf
+
+--:CURRENT_DOT
 
 Another consequence of using L<C<binmode>|/binmode FILEHANDLE, LAYER>
 (on some systems) is that special end-of-file markers will be seen as
