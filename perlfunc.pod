@@ -2202,14 +2202,33 @@ and is LINE FEED on Unix and most VMS files
 --:note
 search: vms file format stream-lf
 
---:CURRENT_DOT
-
 Another consequence of using L<C<binmode>|/binmode FILEHANDLE, LAYER>
 (on some systems) is that special end-of-file markers will be seen as
 part of the data stream.  For systems from the Microsoft family this
 means that, if your binary data contain C<\cZ>, the I/O subsystem will
 regard it as the end of the file, unless you use
 L<C<binmode>|/binmode FILEHANDLE, LAYER>.
+--:old
+Другим следствием использования binmode() (на некоторых системах) является то,
+что специальные маркеры конца файла будут рассматриваться как часть потока
+данных. Для систем из семейства Microsoft это означает, что, если бинарные
+данные содержат \cZ и вы не используете binmode(), то подсистема ввода-вывода
+эту последовательность принимает за конец файла.
+--:g
+Другое следствие использования binmode (в некоторых системах) заключается в
+том, что специальные маркеры конца файла будут рассматриваться как часть потока
+данных. Для систем из семейства Microsoft это означает, что, если ваши двоичные
+данные содержат \ cZ, подсистема ввода-вывода будет рассматривать их как конец
+файла, если вы не используете binmode.
+--:
+Другое следствие использования L<C<binmode>|/binmode FILEHANDLE, LAYER> (в
+некоторых системах) заключается в том, что специальные маркеры конца файла
+будут рассматриваться как часть потока данных.  Для систем из семейства
+Microsoft это означает, что, если ваши двоичные данные содержат C<\cZ>,
+подсистема ввода-вывода будет рассматривать их как конец файла, если вы не
+используете L<C<binmode>|/binmode FILEHANDLE, LAYER>.
+
+--:CURRENT_DOT
 
 L<C<binmode>|/binmode FILEHANDLE, LAYER> is important not only for
 L<C<readline>|/readline EXPR> and L<C<print>|/print FILEHANDLE LIST>
