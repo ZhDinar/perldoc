@@ -2228,8 +2228,6 @@ Microsoft это означает, что, если ваши двоичные д
 подсистема ввода-вывода будет рассматривать их как конец файла, если вы не
 используете L<C<binmode>|/binmode FILEHANDLE, LAYER>.
 
---:CURRENT_DOT
-
 L<C<binmode>|/binmode FILEHANDLE, LAYER> is important not only for
 L<C<readline>|/readline EXPR> and L<C<print>|/print FILEHANDLE LIST>
 operations, but also when using
@@ -2241,8 +2239,26 @@ L<C<tell>|/tell FILEHANDLE> (see L<perlport> for more details).  See the
 L<C<$E<sol>>|perlvar/$E<sol>> and L<C<$\>|perlvar/$\> variables in
 L<perlvar> for how to manually set your input and output
 line-termination sequences.
+--:
+L<C<binmode>|/binmode FILEHANDLE, LAYER> имеет важное значение не только
+для операций
+L<C<readline>|/readline EXPR> и L<C<print>|/print FILEHANDLE LIST>,
+но также при использовании
+L<C<read>|/read FILEHANDLE,SCALAR,LENGTH,OFFSET>,
+L<C<seek>|/seek FILEHANDLE,POSITION,WHENCE>,
+L<C<sysread>|/sysread FILEHANDLE,SCALAR,LENGTH,OFFSET>,
+L<C<syswrite>|/syswrite FILEHANDLE,SCALAR,LENGTH,OFFSET> и
+L<C<tell>|/tell FILEHANDLE> (подробнее об этом в L<perlport>). См.
+переменные
+L<C<$E<sol>>|perlvar/$E<sol>> и L<C<$\>|perlvar/$\> в
+L<perlvar> для того, чтобы вручную установить последовательности завершения
+строки для ввода и вывода.
 
 Portability issues: L<perlport/binmode>.
+--:
+Вопросы переносимости: L<perlport/binmode>.
+
+--:CURRENT_DOT
 
 =item bless REF,CLASSNAME
 X<bless>
