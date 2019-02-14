@@ -2258,8 +2258,6 @@ Portability issues: L<perlport/binmode>.
 --:
 Вопросы переносимости: L<perlport/binmode>.
 
---:CURRENT_DOT
-
 =item bless REF,CLASSNAME
 X<bless>
 
@@ -2274,6 +2272,24 @@ thing in a constructor, it returns the reference for convenience.
 Always use the two-argument version if a derived class might inherit the
 method doing the blessing.  See L<perlobj> for more about the blessing
 (and blessings) of objects.
+--:g
+Эта функция сообщает объекту, на который ссылается REF, что теперь это объект в
+пакете CLASSNAME. Если CLASSNAME опущено, используется текущий пакет. Поскольку
+благословение часто является последним в конструкторе, для удобства оно
+возвращает ссылку. Всегда используйте версию с двумя аргументами, если
+производный класс может наследовать метод, выполняющий благословение. Смотрите
+perlobj для получения дополнительной информации о благословении (и
+благословениях) объектов.
+--:
+Эта функция сообщает объекту, на который ссылается REF, что теперь это объект в
+пакете CLASSNAME. Если CLASSNAME опущено, используется текущий пакет. Поскольку
+L<C<bless>|/bless REF,CLASSNAME> часто является последним в конструкторе, для
+удобства оно возвращает ссылку. Всегда используйте версию с двумя аргументами,
+если производный класс может наследовать метод, выполняющий
+L<C<bless>|/bless REF,CLASSNAME>. Смотрите L<perlobj> для получения
+дополнительной информации о создании объектов класса.
+
+--:CURRENT_DOT
 
 Consider always blessing objects in CLASSNAMEs that are mixed case.
 Namespaces with all lowercase names are considered reserved for
