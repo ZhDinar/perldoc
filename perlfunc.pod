@@ -2315,9 +2315,9 @@ See L<perlmod/"Perl Modules">.
 
 =for Pod::Functions +switch break out of a C<given> block
 
---:CURRENT_DOT
-
 Break out of a C<given> block.
+--:
+Выход из блока C<given>.
 
 L<C<break>|/break> is available only if the
 L<C<"switch"> feature|feature/The 'switch' feature> is enabled or if it
@@ -2325,6 +2325,12 @@ is prefixed with C<CORE::>. The
 L<C<"switch"> feature|feature/The 'switch' feature> is enabled
 automatically with a C<use v5.10> (or higher) declaration in the current
 scope.
+--:
+Поддержка L<C<break>|/break> доступна только при включенном 
+L<C<"switch"> feature|feature/The 'switch' feature> или если предварить
+его префиксом C<CORE::>.  Свойство
+L<C<"switch"> feature|feature/The 'switch' feature> включается автоматически
+при объявлении C<use v5.10> (или выше) в текущей области видимости.
 
 =item caller EXPR
 X<caller> X<call stack> X<stack> X<stack trace>
@@ -2333,6 +2339,8 @@ X<caller> X<call stack> X<stack> X<stack trace>
 
 =for Pod::Functions get context of the current subroutine call
 
+--:CURRENT_DOT
+
 Returns the context of the current pure perl subroutine call.  In scalar
 context, returns the caller's package name if there I<is> a caller (that is, if
 we're in a subroutine or L<C<eval>|/eval EXPR> or
@@ -2340,6 +2348,31 @@ L<C<require>|/require VERSION>) and the undefined value otherwise.
 caller never returns XS subs and they are skipped.  The next pure perl
 sub will appear instead of the XS sub in caller's return values.  In
 list context, caller returns
+--:old
+Возвращает контекст вызова текущей подпрограммы. В скалярном контексте,
+возвращает имя пакета, инициировавшего вызов, если есть инициатор вызова (т.е.,
+если мы находимся в подпрограмме, eval или require) и неопределенное значение в
+противном случае. В списковом контексте, возвращает:
+--:g
+Возвращает контекст текущего чистого вызова подпрограммы perl. В скалярном
+контексте возвращает имя пакета вызывающего, если есть вызывающий (то есть,
+если мы находимся в подпрограмме или <eval> или <require>, в противном случае
+неопределенное значение. Caller никогда не возвращает подпрограммы XS, и они
+пропускаются. следующий чистый perl sub появится вместо XS sub в возвращаемых
+значениях вызывающего абонента.
+--:
+Возвращает контекст вызова текущей подпрограммы. В скалярном контексте,
+возвращает имя пакета, инициировавшего вызов, если есть инициатор вызова (то
+есть, если мы находимся в подпрограмме, L<C<eval>|/eval EXPR> или
+L<C<require>|/require VERSION>) и неопределенное значение в противном случае.
+Функция C<caller> никогда не возвращает подпрограммы XS и они пропускаются.
+Следующая подпрограмма на чистом perl появится вместо подпрограммы XS в
+возвращаемых значениях функции caller. В списковом контексте, C<caller>
+возвращает
+--:note
+О том, что такое "pure perl" - https://www.perlmonks.org/?node_id=709757
+Пока опустил перевод значения pure perl, позже внести корректировки.
+(вариант: <Возвращает pure perl контекст вызова текущей подпрограммы.>)
 
        # 0         1          2
     my ($package, $filename, $line) = caller;
